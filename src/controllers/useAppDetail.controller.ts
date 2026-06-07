@@ -65,9 +65,14 @@ export function useAppDetailController(appId: string) {
 
       // Phase 3: Trigger real simulated file and update DB
       setDownloadState("completed");
-      DownloadService.triggerFileDownload(app.downloadUrl);
+      if (app.telegramFileId) {
+        const botLink = `https://t.me/file_cloud1_bot?start=dl_${app.id}`;
+        DownloadService.triggerFileDownload(botLink);
+      } else {
+        DownloadService.triggerFileDownload(app.downloadUrl);
+      }
       incrementDownloads(app.id);
-      showNotification("Tải ứng dụng thành công! Tệp tin đã được lưu.", "success");
+      showNotification("Tải ứng dụng thành công! Đang chuyển hướng tới Bot tải file...", "success");
 
     } catch (error: any) {
       console.error("Download failed:", error);

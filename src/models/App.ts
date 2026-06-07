@@ -19,6 +19,7 @@ export interface IApp extends Document {
   status: "approved" | "pending";
   submittedBy: string;
   techStack?: string[];
+  telegramFileId?: string;
 }
 
 const AppSchema: Schema = new Schema(
@@ -41,6 +42,7 @@ const AppSchema: Schema = new Schema(
     status: { type: String, enum: ["approved", "pending"], default: "approved" },
     submittedBy: { type: String, required: true },
     techStack: { type: [String], default: [] },
+    telegramFileId: { type: String, default: "" },
   },
   {
     timestamps: true,

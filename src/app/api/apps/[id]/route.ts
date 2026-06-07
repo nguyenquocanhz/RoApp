@@ -91,7 +91,8 @@ export async function PUT(
       downloadUrl,
       techStack,
       status,
-      updaterRole
+      updaterRole,
+      telegramFileId
     } = body;
 
     const app = await App.findOne({ id });
@@ -111,6 +112,7 @@ export async function PUT(
     if (fileSize !== undefined) app.fileSize = fileSize;
     if (downloadUrl) app.downloadUrl = downloadUrl;
     if (techStack) app.techStack = techStack;
+    if (telegramFileId !== undefined) app.telegramFileId = telegramFileId;
 
     // Standard user updates revert status to pending; admin stays approved
     if (updaterRole === "admin" || status === "approved") {

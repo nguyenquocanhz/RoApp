@@ -22,6 +22,7 @@ export interface AppItem {
   status: "approved" | "pending";
   submittedBy: string;
   techStack?: string[];
+  telegramFileId?: string;
 }
 
 interface AppStateContextType {

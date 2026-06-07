@@ -47,6 +47,10 @@ export default function AdminDashboard() {
   const [seoDescription, setSeoDescription] = useState("");
   const [seoKeywords, setSeoKeywords] = useState("");
 
+  // Webhook integration states
+  const [telegramWebhookUrl, setTelegramWebhookUrl] = useState("");
+  const [registeringWebhook, setRegisteringWebhook] = useState(false);
+
   // Fetch Users List
   const fetchUsers = useCallback(async () => {
     try {
@@ -205,6 +209,28 @@ export default function AdminDashboard() {
       showNotification("Lưu cấu hình thất bại: " + err.message, "error");
     } finally {
       setLoadingSettings(false);
+    }
+  };
+
+  const handleRegisterWebhook = async () => {
+    if (!telegramWebhookUrl.trim()) {
+      showNotification("Vui lòng nhập đường dẫn Webhook URL.", "warning");
+      return;
+    }
+    setRegisteringWebhook(true);
+    try {
+      const botToken = telegramBotToken.trim() || "8304432515:AAFsYK5T_6TBw38y3V4ye6P7ZL-g14vdlzo";
+      const res = await fetch(`https://api.telegram.org/bot${botToken}/setWebhook?url=${telegramWebhookUrl.trim()}`);
+      const data = await res.json();
+      if (data.ok) {
+        showNotification("Đã kích hoạt Webhook cho Telegram Bot thành công!", "success");
+      } else {
+        showNotification("Kích hoạt Webhook thất bại: " + data.description, "error");
+      }
+    } catch (err: any) {
+      showNotification("Lỗi kết nối API Telegram: " + err.message, "error");
+    } finally {
+      setRegisteringWebhook(false);
     }
   };
 
@@ -615,6 +641,47 @@ export default function AdminDashboard() {
                       onChange={(e) => setTelegramChatId(e.target.value)}
                       className={styles.input}
                     />
+                  </div>
+                </div>
+
+                {/* Field: Telegram Webhook setup */}
+                <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "1.5rem" }}>
+                  <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.5rem", color: "#c084fc" }}>Cấu hình Webhook cho Bot tải File (Telegram File Cloud Helper)</h3>
+                  <p style={{ fontSize: "0.75rem", color: "hsl(var(--foreground-muted))", marginBottom: "1rem" }}>
+                    Cấu hình để bot Telegram nhận sự kiện khởi chạy (Deep-linking) và gửi trực tiếp tệp cài đặt cho người dùng trong chat riêng tư.
+                  </p>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                      <label style={{ fontSize: "0.85rem", fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>Webhook URL (Đường dẫn NextJS Webhook API)</label>
+                      <div style={{ display: "flex", gap: "0.75rem" }}>
+                        <input 
+                          type="url" 
+                          placeholder="Ví dụ: https://ten-mien-cua-ban.vn/api/telegram/webhook"
+                          value={telegramWebhookUrl}
+                          onChange={(e) => setTelegramWebhookUrl(e.target.value)}
+                          className={styles.input}
+                          style={{ flex: 1 }}
+                        />
+                        <button
+                          type="button"
+                          onClick={handleRegisterWebhook}
+                          disabled={registeringWebhook}
+                          style={{
+                            padding: "0.5rem 1.2rem",
+                            borderRadius: "8px",
+                            background: "rgba(168, 85, 247, 0.2)",
+                            color: "#c084fc",
+                            border: "1px solid rgba(168, 85, 247, 0.4)",
+                            fontWeight: 600,
+                            cursor: "pointer",
+                            fontSize: "0.8rem",
+                            transition: "all 0.2s ease"
+                          }}
+                        >
+                          {registeringWebhook ? "Đang xử lý..." : "Kích hoạt Webhook"}
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

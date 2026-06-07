@@ -64,7 +64,6 @@ export async function POST(request: NextRequest) {
   try {
     await dbConnect();
     const body = await request.json();
-
     const {
       name,
       developer,
@@ -78,7 +77,8 @@ export async function POST(request: NextRequest) {
       fileSize,
       downloadUrl,
       submittedBy,
-      techStack
+      techStack,
+      telegramFileId
     } = body;
 
     // Validation
@@ -123,7 +123,8 @@ export async function POST(request: NextRequest) {
       status: "pending", // Always pending when submitted by users
       submittedBy,
       releaseDate,
-      techStack: techStack || []
+      techStack: techStack || [],
+      telegramFileId: telegramFileId || ""
     });
 
     await newApp.save();

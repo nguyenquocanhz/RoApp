@@ -62,6 +62,9 @@ export function useSubmitAppController() {
   const [screenshotsUploading, setScreenshotsUploading] = useState(false);
   const [screenshotsProgress, setScreenshotsProgress] = useState(0);
 
+  // Uploaded file ID state
+  const [uploadedFileId, setUploadedFileId] = useState("");
+
   // Auto populate uploader Display Name if developerType is display
   useEffect(() => {
     if (developerType === "display" && user) {
@@ -76,7 +79,7 @@ export function useSubmitAppController() {
     file: File,
     type: "document" | "photo",
     onProgress?: (percent: number) => void
-  ): Promise<string> => {
+  ): Promise<{ url: string; fileId: string }> => {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       const formData = new FormData();
@@ -137,12 +140,12 @@ export function useSubmitAppController() {
                 fallbackUrl = `https://t.me/c/${cleanChatId}/${messageId}`;
               }
               
-              resolve(fallbackUrl);
+              resolve({ url: fallbackUrl, fileId });
               return;
             }
 
             const fileUrl = `https://api.telegram.org/file/bot${TELEGRAM_BOT_TOKEN}/${pathData.result.file_path}`;
-            resolve(fileUrl);
+            resolve({ url: fileUrl, fileId });
           } catch (err) {
             reject(err);
           }
@@ -172,8 +175,9 @@ export function useSubmitAppController() {
     uploadFileToTelegram(file, "document", (progress) => {
       setUploadProgress(progress);
     })
-      .then((url) => {
+      .then(({ url, fileId }) => {
         setUploadedFileUrl(url);
+        setUploadedFileId(fileId);
         setUploading(false);
         showNotification(`Đã tải lên tệp cài đặt lên Telegram Cloud thành công!`, "success");
         
@@ -195,7 +199,7 @@ export function useSubmitAppController() {
     setLogoUploading(true);
     setLogoProgress(0);
     try {
-      const url = await uploadFileToTelegram(file, "photo", (progress) => {
+      const { url } = await uploadFileToTelegram(file, "photo", (progress) => {
         setLogoProgress(progress);
       });
       setForm((prev) => ({ ...prev, iconUrl: url }));
@@ -224,7 +228,7 @@ export function useSubmitAppController() {
       
       for (let i = 0; i < totalFiles; i++) {
         const file = files[i];
-        const url = await uploadFileToTelegram(file, "photo", (progress) => {
+        const { url } = await uploadFileToTelegram(file, "photo", (progress) => {
           const currentProgress = Math.round(((i + progress / 100) / totalFiles) * 100);
           setScreenshotsProgress(currentProgress);
         });
@@ -339,7 +343,8 @@ export function useSubmitAppController() {
       screenshots: form.screenshots,
       fileSize,
       downloadUrl,
-      techStack
+      techStack,
+      telegramFileId: fileSourceType === "upload" ? uploadedFileId : undefined
     });
 
     showNotification("Đăng tải ứng dụng thành công! Đang chờ duyệt từ hệ thống.", "success");
@@ -374,6 +379,7 @@ export function useSubmitAppController() {
     logoProgress,
     screenshotsUploading,
     screenshotsProgress,
+    uploadedFileId,
     startTelegramUpload,
     handleLogoUpload,
     handleScreenshotsUpload,

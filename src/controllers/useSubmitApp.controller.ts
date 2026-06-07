@@ -124,9 +124,19 @@ export function useSubmitAppController() {
               console.warn("Telegram getFile warning:", pathData.description);
               // Fallback for files > 20MB where getFile fails due to Telegram API limits
               const messageId = response.result.message_id;
-              const chatIdStr = Math.abs(response.result.chat.id).toString();
-              const cleanChatId = chatIdStr.startsWith("100") ? chatIdStr.substring(3) : chatIdStr;
-              const fallbackUrl = `https://t.me/c/${cleanChatId}/${messageId}`;
+              const chat = response.result.chat;
+              
+              let fallbackUrl = "";
+              if (chat.username) {
+                // Public channel/group link format (accessible to anyone)
+                fallbackUrl = `https://t.me/${chat.username}/${messageId}`;
+              } else {
+                // Private channel/group link format (requires membership)
+                const chatIdStr = Math.abs(chat.id).toString();
+                const cleanChatId = chatIdStr.startsWith("100") ? chatIdStr.substring(3) : chatIdStr;
+                fallbackUrl = `https://t.me/c/${cleanChatId}/${messageId}`;
+              }
+              
               resolve(fallbackUrl);
               return;
             }

@@ -54,17 +54,23 @@ export const DownloadService = {
   },
 
   /**
-   * Triggers a real browser mock file download
+   * Triggers a real browser file download or redirects to external hosting link
    */
-  triggerFileDownload(fileName: string) {
-    // Creating a mock file download in browser
+  triggerFileDownload(downloadUrl: string) {
+    if (downloadUrl.startsWith("http://") || downloadUrl.startsWith("https://")) {
+      // Open real download/cloud links in a new tab
+      window.open(downloadUrl, "_blank");
+      return;
+    }
+
+    // Creating a mock file download in browser for local mock paths
     const element = document.createElement("a");
     const file = new Blob(
       ["[Mock Rổ Ứng Dụng File] Đây là tập tin tải xuống giả lập cho dự án Rổ Ứng Dụng."],
       { type: "text/plain" }
     );
     element.href = URL.createObjectURL(file);
-    element.download = fileName;
+    element.download = downloadUrl.split("/").pop() || "app_file.txt";
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);

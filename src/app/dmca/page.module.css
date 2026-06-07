@@ -1,0 +1,61 @@
+.card {
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.markdownBody {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-geist-sans), sans-serif;
+  line-height: 1.7;
+}
+
+.markdownBody h1, .markdownBody h2 {
+  background: linear-gradient(135deg, #ffffff 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.markdownBody h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.75rem;
+}
+
+.markdownBody h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.markdownBody h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #60a5fa;
+}
+
+.markdownBody p {
+  margin-bottom: 1.25rem;
+}
+
+.markdownBody ul, .markdownBody ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.markdownBody li {
+  margin-bottom: 0.5rem;
+}
+
+.markdownBody strong {
+  color: #ffffff;
+  font-weight: 600;
+}

@@ -1,66 +1,111 @@
-import Image from "next/image";
+"use client";
+
+import React from "react";
+import { useAppListController } from "@/controllers/useAppList.controller";
+import { useAppState } from "@/ecosystem/appState.context";
+import FilterSidebar from "@/ui/components/FilterSidebar/FilterSidebar";
+import AppCard from "@/ui/components/AppCard/AppCard";
+import { AlertCircle, Terminal, HelpCircle } from "lucide-react";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const { loading } = useAppState();
+  const {
+    searchQuery,
+    setSearchQuery,
+    selectedPlatform,
+    setSelectedPlatform,
+    selectedCategory,
+    setSelectedCategory,
+    sortBy,
+    setSortBy,
+    categories,
+    filteredApps,
+  } = useAppListController();
+
+  const handleResetFilters = () => {
+    setSearchQuery("");
+    setSelectedPlatform("all");
+    setSelectedCategory("all");
+    setSortBy("popular");
+  };
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="container">
+      {/* Hero Section */}
+      <section className={`${styles.hero} glass`}>
+        <div className={styles.glowBall1} />
+        <div className={styles.glowBall2} />
+        
+        <h1 className={`${styles.heroTitle} text-gradient-primary`}>
+          Rổ Ứng Dụng Premium
+        </h1>
+        <p className={styles.heroSubtitle}>
+          Cộng đồng chia sẻ tập tin cài đặt Android (APK), iOS (IPA) đã qua kiểm duyệt bảo mật và các mẫu mã nguồn website Next.js, React, Laravel chất lượng cao hoàn toàn miễn phí.
+        </p>
+      </section>
+
+      {/* Catalog Grid */}
+      <div className={styles.mainLayout}>
+        {/* Sidebar Controls */}
+        <FilterSidebar
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          selectedPlatform={selectedPlatform}
+          setSelectedPlatform={setSelectedPlatform}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+          categories={categories}
         />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+
+        {/* Catalog List */}
+        <div>
+          <div className={styles.catalogHeader}>
+            <span className={styles.resultCount}>
+              {loading ? "Đang tải dữ liệu..." : `Tìm thấy ${filteredApps.length} kết quả`}
+            </span>
+          </div>
+
+          {/* Catalog Listing */}
+          {loading ? (
+            // Skeleton loader grid
+            <div className="grid-responsive">
+              {Array.from({ length: 6 }).map((_, idx) => (
+                <div key={idx} className={styles.skeletonCard}>
+                  <div style={{ display: "flex", gap: "1rem" }}>
+                    <div className={styles.skeletonIcon} />
+                    <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "0.5rem", justifyContent: "center" }}>
+                      <div className={styles.skeletonTitle} />
+                      <div className={styles.skeletonMeta} />
+                    </div>
+                  </div>
+                  <div className={styles.skeletonDesc} />
+                </div>
+              ))}
+            </div>
+          ) : filteredApps.length > 0 ? (
+            <div className="grid-responsive">
+              {filteredApps.map((app) => (
+                <AppCard key={app.id} app={app} />
+              ))}
+            </div>
+          ) : (
+            // Empty State
+            <div className={`${styles.emptyState} glass`}>
+              <AlertCircle size={48} style={{ color: "hsl(var(--accent))" }} />
+              <h3 className={styles.emptyTitle}>Không tìm thấy ứng dụng</h3>
+              <p className={styles.emptyText}>
+                Rổ chưa có ứng dụng nào phù hợp với bộ lọc tìm kiếm của bạn. Hãy thử tìm từ khóa khác hoặc đặt lại bộ lọc.
+              </p>
+              <button onClick={handleResetFilters} className={styles.btnReset}>
+                Đặt lại bộ lọc
+              </button>
+            </div>
+          )}
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }

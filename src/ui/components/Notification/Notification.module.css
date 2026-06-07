@@ -1,0 +1,189 @@
+.toastContainer {
+  position: fixed;
+  top: 85px; /* Safely sits below the 70px sticky navbar */
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 100020; /* Render on top of modal popups, navbar, and dropdowns */
+  pointer-events: none;
+  max-width: calc(100vw - 40px);
+}
+
+.toastCard {
+  pointer-events: auto;
+  position: relative;
+  width: 350px;
+  max-width: 100%;
+  padding: 1rem;
+  border-radius: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  overflow: hidden;
+  border: 1px solid;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(120%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.toastIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+}
+
+.toastContent {
+  flex-grow: 1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.toastClose {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+
+.toastClose:hover {
+  opacity: 1;
+}
+
+/* ----------------------------------------------------
+   NOTIFICATION STATE COLORS (LIGHT MODE - DEFAULT)
+   ---------------------------------------------------- */
+.success {
+  background: hsl(142 70% 97% / 0.95) !important;
+  border-color: hsl(142 70% 45% / 0.25) !important;
+  color: hsl(142 80% 12%);
+  box-shadow: 0 10px 30px hsl(142 70% 45% / 0.08);
+}
+.success .toastIcon { color: hsl(142 70% 40%); }
+.success .toastClose { color: hsl(142 70% 30%); }
+.success .toastClose:hover { background-color: hsl(142 70% 45% / 0.1); }
+
+.error {
+  background: hsl(346 80% 98% / 0.95) !important;
+  border-color: hsl(346 84% 50% / 0.25) !important;
+  color: hsl(346 84% 12%);
+  box-shadow: 0 10px 30px hsl(346 84% 50% / 0.08);
+}
+.error .toastIcon { color: hsl(346 84% 45%); }
+.error .toastClose { color: hsl(346 84% 30%); }
+.error .toastClose:hover { background-color: hsl(346 84% 50% / 0.1); }
+
+.warning {
+  background: hsl(38 90% 97% / 0.95) !important;
+  border-color: hsl(38 92% 50% / 0.25) !important;
+  color: hsl(38 92% 15%);
+  box-shadow: 0 10px 30px hsl(38 92% 50% / 0.08);
+}
+.warning .toastIcon { color: hsl(38 92% 40%); }
+.warning .toastClose { color: hsl(38 92% 25%); }
+.warning .toastClose:hover { background-color: hsl(38 92% 50% / 0.1); }
+
+.info {
+  background: hsl(200 90% 97% / 0.95) !important;
+  border-color: hsl(200 95% 48% / 0.25) !important;
+  color: hsl(200 95% 15%);
+  box-shadow: 0 10px 30px hsl(200 95% 48% / 0.08);
+}
+.info .toastIcon { color: hsl(200 95% 40%); }
+.info .toastClose { color: hsl(200 95% 25%); }
+.info .toastClose:hover { background-color: hsl(200 95% 48% / 0.1); }
+
+
+/* ----------------------------------------------------
+   NOTIFICATION STATE COLORS (DARK MODE - DETECTED BY .dark)
+   ---------------------------------------------------- */
+:global(.dark) .success {
+  background: linear-gradient(135deg, hsl(142 72% 8% / 0.9), hsl(142 72% 4% / 0.95)) !important;
+  border-color: hsl(142 70% 45% / 0.35) !important;
+  color: hsl(142 70% 95%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px hsl(142 70% 45% / 0.05);
+}
+:global(.dark) .success .toastIcon { color: hsl(142 70% 48%); }
+:global(.dark) .success .toastClose { color: hsl(142 70% 80%); }
+:global(.dark) .success .toastClose:hover { background-color: hsl(142 70% 45% / 0.15); }
+
+:global(.dark) .error {
+  background: linear-gradient(135deg, hsl(346 80% 8% / 0.9), hsl(346 80% 4% / 0.95)) !important;
+  border-color: hsl(346 84% 50% / 0.35) !important;
+  color: hsl(346 84% 95%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px hsl(346 84% 50% / 0.05);
+}
+:global(.dark) .error .toastIcon { color: hsl(346 84% 52%); }
+:global(.dark) .error .toastClose { color: hsl(346 84% 80%); }
+:global(.dark) .error .toastClose:hover { background-color: hsl(346 84% 50% / 0.15); }
+
+:global(.dark) .warning {
+  background: linear-gradient(135deg, hsl(38 90% 8% / 0.9), hsl(38 90% 4% / 0.95)) !important;
+  border-color: hsl(38 92% 50% / 0.35) !important;
+  color: hsl(38 92% 95%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px hsl(38 92% 50% / 0.05);
+}
+:global(.dark) .warning .toastIcon { color: hsl(38 92% 50%); }
+:global(.dark) .warning .toastClose { color: hsl(38 92% 80%); }
+:global(.dark) .warning .toastClose:hover { background-color: hsl(38 92% 50% / 0.15); }
+
+:global(.dark) .info {
+  background: linear-gradient(135deg, hsl(200 90% 8% / 0.9), hsl(200 90% 4% / 0.95)) !important;
+  border-color: hsl(200 95% 48% / 0.35) !important;
+  color: hsl(200 95% 95%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px hsl(200 95% 48% / 0.05);
+}
+:global(.dark) .info .toastIcon { color: hsl(200 95% 50%); }
+:global(.dark) .info .toastClose { color: hsl(200 95% 80%); }
+:global(.dark) .info .toastClose:hover { background-color: hsl(200 95% 48% / 0.15); }
+
+
+/* ----------------------------------------------------
+   PROGRESS BAR TIMERS
+   ---------------------------------------------------- */
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left;
+  animation: shrink linear forwards;
+}
+
+.success .progressBar { background: hsl(142 70% 45%); }
+.error .progressBar { background: hsl(346 84% 50%); }
+.warning .progressBar { background: hsl(38 92% 50%); }
+.info .progressBar { background: hsl(200 95% 48%); }
+
+@keyframes shrink {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}

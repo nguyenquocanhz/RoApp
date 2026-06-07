@@ -1,0 +1,221 @@
+[
+  {
+    "id": "flappy-bird-remaster",
+    "name": "Flappy Bird Remastered",
+    "developer": "Pixel Studio",
+    "version": "2.1.0",
+    "platform": "android",
+    "category": "Trò chơi",
+    "description": "Phiên bản làm lại đồ họa HD của tựa game Flappy Bird huyền thoại với âm thanh cực cuốn.",
+    "detailedDescription": "Trải nghiệm lại tựa game di động gây nghiện nhất mọi thời đại với đồ họa HD vẽ tay cực đẹp, nhiều chế độ chơi mới như sinh tồn, đua tốc độ cùng bảng xếp hạng trực tuyến. Game được tối ưu hóa chạy mượt mà trên các thiết bị Android từ tầm trung đến cao cấp, không chứa quảng cáo gây khó chịu.",
+    "iconUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=120&h=120&fit=crop",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=450&fit=crop",
+      "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=450&fit=crop"
+    ],
+    "fileSize": 45000000,
+    "downloads": 12540,
+    "rating": 4.8,
+    "releaseDate": "2026-05-15",
+    "downloadUrl": "flappy_bird_remastered.apk",
+    "status": "approved",
+    "submittedBy": "NguyenHoang99"
+  },
+  {
+    "id": "retro-emulator-pro",
+    "name": "Retro Emulator Pro",
+    "developer": "EmulLabs",
+    "version": "1.4.2",
+    "platform": "android",
+    "category": "Công cụ",
+    "description": "Trình giả lập tối ưu hóa cao cho các máy chơi game cầm tay cổ điển: GameBoy, NES, SNES.",
+    "detailedDescription": "Retro Emulator Pro mang lại trải nghiệm chơi game tuổi thơ hoàn hảo trên chiếc điện thoại của bạn. Hỗ trợ save state, load state, tua nhanh game, tùy biến tay cầm ảo trên màn hình và kết nối tay cầm Bluetooth ngoài. Hỗ trợ quét và tự động sắp xếp thư viện ROM từ thiết bị của bạn.",
+    "iconUrl": "https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?w=120&h=120&fit=crop",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=800&h=450&fit=crop",
+      "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?w=800&h=450&fit=crop"
+    ],
+    "fileSize": 18500000,
+    "downloads": 8720,
+    "rating": 4.6,
+    "releaseDate": "2026-04-10",
+    "downloadUrl": "retro_emulator_pro.apk",
+    "status": "approved",
+    "submittedBy": "TechMaster"
+  },
+  {
+    "id": "pixel-art-editor",
+    "name": "PixelArt Editor Studio",
+    "developer": "DrawCreative",
+    "version": "3.0.5",
+    "platform": "ios",
+    "category": "Thiết kế & Đồ họa",
+    "description": "Ứng dụng chuyên nghiệp để vẽ pixel art, làm sprite game và ảnh động GIF trên iPhone/iPad.",
+    "detailedDescription": "Công cụ vẽ chuyên nghiệp được tối ưu hóa cho màn hình cảm ứng của iOS và bút Apple Pencil. Hỗ trợ hệ thống layer không giới hạn, lưới pixel tự căn chỉnh, bảng màu tùy chọn xuất nhập đa dạng, và khả năng xuất file ảnh định dạng PNG chất lượng cao hoặc xuất file hoạt ảnh GIF.",
+    "iconUrl": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=120&h=120&fit=crop",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&h=450&fit=crop",
+      "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800&h=450&fit=crop"
+    ],
+    "fileSize": 68000000,
+    "downloads": 3240,
+    "rating": 4.7,
+    "releaseDate": "2026-05-20",
+    "downloadUrl": "pixelart_editor_studio.ipa",
+    "status": "approved",
+    "submittedBy": "ArtFanatic"
+  },
+  {
+    "id": "synth-pad-music",
+    "name": "SynthPad Pro",
+    "developer": "AudioVibe",
+    "version": "1.0.1",
+    "platform": "ios",
+    "category": "Âm nhạc",
+    "description": "Trình tổng hợp âm thanh ảo mạnh mẽ tạo ra các bản nhạc EDM và Synthwave chất lượng phòng thu.",
+    "detailedDescription": "Một bộ tổng hợp nhạc synthesizer mô phỏng mạch analog huyền thoại. Đi kèm 120 presets sẵn có, bộ lọc LFO chất lượng cao, các hiệu ứng delay, reverb, distortion chuyên sâu. Tương thích hoàn hảo với giao thức MIDI và AudioBus trên nền tảng iOS.",
+    "iconUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=120&h=120&fit=crop",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=450&fit=crop",
+      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=450&fit=crop"
+    ],
+    "fileSize": 112000000,
+    "downloads": 1540,
+    "rating": 4.5,
+    "releaseDate": "2026-03-05",
+    "downloadUrl": "synthpad_pro.ipa",
+    "status": "approved",
+    "submittedBy": "SoundMaker"
+  },
+  {
+    "id": "nextjs-ecommerce-saas",
+    "name": "E-Commerce SaaS Template",
+    "developer": "CodersHQ",
+    "version": "1.0.0",
+    "platform": "web",
+    "category": "Thương mại điện tử",
+    "techStack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Prisma"],
+    "description": "Mã nguồn trang thương mại điện tử hoàn chỉnh, tích hợp giỏ hàng, thanh toán Stripe và Dashboard quản lý.",
+    "detailedDescription": "Một mẫu giao diện và cấu trúc hoàn hảo cho dự án khởi nghiệp bán hàng. Gồm trang hiển thị sản phẩm động, bộ lọc nâng cao, chức năng thêm vào giỏ hàng real-time, luồng thanh toán Stripe bảo mật. Giao diện trang Admin trực quan giúp quản lý sản phẩm, đơn hàng và khách hàng.",
+    "iconUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=120&h=120&fit=crop",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=450&fit=crop"
+    ],
+    "fileSize": 15600000,
+    "downloads": 2450,
+    "rating": 4.9,
+    "releaseDate": "2026-06-01",
+    "downloadUrl": "nextjs_ecommerce_saas.zip",
+    "status": "approved",
+    "submittedBy": "DevFullstack"
+  },
+  {
+    "id": "nextjs-portfolio-premium",
+    "name": "Glassmorphism Portfolio template",
+    "developer": "ElegantWeb",
+    "version": "1.2.0",
+    "platform": "web",
+    "category": "Giao diện Portfolio",
+    "techStack": ["Next.js 15", "Framer Motion", "CSS Modules"],
+    "description": "Mã nguồn trang web giới thiệu bản thân tuyệt đẹp với phong cách Glassmorphism và hiệu ứng động mượt mà.",
+    "detailedDescription": "Trang trí hồ sơ năng lực của bạn với giao diện portfolio vô cùng sang trọng. Thiết kế mờ ảo thời thượng, hỗ trợ đa ngôn ngữ, tối ưu SEO vượt trội, hiệu ứng chuyển trang bằng Framer Motion mượt mà cùng mẫu thư liên hệ trực tiếp qua EmailJS.",
+    "iconUrl": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=120&h=120&fit=crop",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=450&fit=crop",
+      "https://images.unsplash.com/photo-1547119957-637f8679db1e?w=800&h=450&fit=crop"
+    ],
+    "fileSize": 8400000,
+    "downloads": 4120,
+    "rating": 4.9,
+    "releaseDate": "2026-05-28",
+    "downloadUrl": "glassmorphism_portfolio.zip",
+    "status": "approved",
+    "submittedBy": "ElegantWeb"
+  },
+  {
+    "id": "photo-editor-premium",
+    "name": "Custom Camera & Editor",
+    "developer": "PhotoTech",
+    "version": "1.1.2",
+    "platform": "android",
+    "category": "Hình ảnh & Nhiếp ảnh",
+    "description": "Trình chụp ảnh chuyên sâu với bộ tùy chỉnh ISO, tiêu cự bằng tay và hơn 50 bộ lọc ảnh retro độc đáo.",
+    "detailedDescription": "Biến chiếc điện thoại thành máy ảnh chuyên nghiệp. Cho phép điều khiển các thông số phơi sáng, cân bằng trắng, tốc độ màn trập, và lưu ảnh dưới định dạng RAW chất lượng cao cho việc hậu kỳ dễ dàng.",
+    "iconUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=120&h=120&fit=crop",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1554080353-a576cf803bda?w=800&h=450&fit=crop"
+    ],
+    "fileSize": 32000000,
+    "downloads": 1420,
+    "rating": 4.4,
+    "releaseDate": "2026-04-28",
+    "downloadUrl": "camera_editor_premium.apk",
+    "status": "approved",
+    "submittedBy": "CameraLover"
+  },
+  {
+    "id": "secure-chat-comm",
+    "name": "ChatSecure Messenger",
+    "developer": "PrivacyFirst",
+    "version": "4.2.0",
+    "platform": "android",
+    "category": "Liên lạc & Trò chuyện",
+    "description": "Ứng dụng nhắn tin mã hóa đầu cuối (E2EE) bảo vệ tối đa quyền riêng tư của bạn.",
+    "detailedDescription": "Một trình nhắn tin mã hóa hoàn hảo dựa trên giao thức Signal. Tin nhắn tự hủy, không lưu máy chủ trung gian, mã khóa ứng dụng bằng vân tay và ngăn chặn chụp màn hình tin nhắn hoàn toàn.",
+    "iconUrl": "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=120&h=120&fit=crop",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1577563906417-a045ef33d3b9?w=800&h=450&fit=crop"
+    ],
+    "fileSize": 28000000,
+    "downloads": 3890,
+    "rating": 4.7,
+    "releaseDate": "2026-05-10",
+    "downloadUrl": "chat_secure.apk",
+    "status": "approved",
+    "submittedBy": "PrivacyFirst"
+  },
+  {
+    "id": "pending-ios-vpn",
+    "name": "Ultra VPN Proxy Shield",
+    "developer": "SecureNet Ltd",
+    "version": "1.0.0",
+    "platform": "ios",
+    "category": "Tiện ích & Bảo mật",
+    "description": "Kết nối VPN tốc độ cao ẩn danh bảo vệ duyệt web trên thiết bị di động Apple.",
+    "detailedDescription": "Ứng dụng VPN cung cấp hơn 100 địa điểm kết nối tốc độ cao trên toàn thế giới, mã hóa lưu lượng truy cập bằng giao thức WireGuard hiện đại và không lưu nhật ký hoạt động (no logs policy).",
+    "iconUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=120&h=120&fit=crop",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=450&fit=crop"
+    ],
+    "fileSize": 24000000,
+    "downloads": 0,
+    "rating": 0,
+    "releaseDate": "2026-06-06",
+    "downloadUrl": "ultra_vpn_shield.ipa",
+    "status": "pending",
+    "submittedBy": "DeveloperJoe"
+  },
+  {
+    "id": "pending-web-dashboard",
+    "name": "Modern CRM Admin Dashboard",
+    "developer": "SaaSPro",
+    "version": "1.0.0",
+    "platform": "web",
+    "category": "Hệ thống quản lý",
+    "techStack": ["Next.js 15", "Chart.js", "React Query", "Tailwind CSS"],
+    "description": "Mã nguồn trang quản trị quan hệ khách hàng hiện đại, tích hợp biểu đồ phân tích sâu.",
+    "detailedDescription": "Mẫu giao diện quản trị dashboard đầy đủ bao gồm các module quản lý dự án, báo cáo doanh thu, lập hóa đơn tự động và gửi thông báo trực tiếp đến nhân viên. Sử dụng Chart.js vẽ biểu đồ mượt mà.",
+    "iconUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=120&h=120&fit=crop",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop"
+    ],
+    "fileSize": 11200000,
+    "downloads": 0,
+    "rating": 0,
+    "releaseDate": "2026-06-07",
+    "downloadUrl": "modern_crm_dashboard.zip",
+    "status": "pending",
+    "submittedBy": "DevFullstack"
+  }
+]

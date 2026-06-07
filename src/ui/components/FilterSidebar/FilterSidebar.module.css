@@ -1,0 +1,140 @@
+.sidebar {
+  border-radius: 18px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: fit-content;
+  position: sticky;
+  top: 90px;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  color: hsl(var(--foreground-muted));
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.25rem;
+  border-radius: 12px;
+  border: 1px solid hsla(var(--border) / 0.8);
+  background: hsla(var(--foreground) / 0.02);
+  color: hsl(var(--foreground));
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  border-color: hsl(var(--primary));
+  background: hsla(var(--card-bg) / var(--card-bg-opacity));
+  box-shadow: 0 0 0 3px hsla(var(--primary-glow));
+}
+
+.platformGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filterBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: hsla(var(--foreground) / 0.75);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.filterBtn:hover {
+  background-color: hsla(var(--foreground) / 0.04);
+  color: hsl(var(--foreground));
+}
+
+.filterBtnActive {
+  background-color: hsla(var(--primary-glow));
+  border-color: hsla(var(--primary) / 0.2);
+  color: hsl(var(--primary));
+}
+
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.categoryPill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  border: 1px solid hsla(var(--border) / 0.8);
+  background: hsla(var(--foreground) / 0.02);
+  color: hsla(var(--foreground) / 0.8);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoryPill:hover {
+  background-color: hsla(var(--foreground) / 0.05);
+  color: hsl(var(--foreground));
+  border-color: hsla(var(--foreground) / 0.2);
+}
+
+.categoryPillActive {
+  background-color: hsl(var(--primary));
+  color: white;
+  border-color: hsl(var(--primary));
+}
+
+.selectInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid hsla(var(--border) / 0.8);
+  background: hsla(var(--foreground) / 0.02);
+  color: hsl(var(--foreground));
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.selectInput:focus {
+  border-color: hsl(var(--primary));
+}
+
+.selectInput option {
+  background-color: hsl(var(--bg-color));
+  color: hsl(var(--foreground));
+}
